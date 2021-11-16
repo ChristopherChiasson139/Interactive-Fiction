@@ -15,11 +15,19 @@ namespace string__
         static void Main(string[] args)
         {
 
+            Console.WriteLine("start");
+
+            //--------------------------------------//
             while (reset == true)
             {
 
+                //--------------------------------------//
                 page[0] = "eee";
                 page[1] = "aaa";
+                page[2] = "sss";
+                page[3] = "rrr";
+                //--------------------------------------//
+
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(true);
@@ -32,20 +40,15 @@ namespace string__
                 {
                     //reset = false;
                     Console.WriteLine(page[0]);
-                }
-                else
-                {
-                    Console.WriteLine("not an option");
                     
                 }
-
+                //if (input.KeyChar == )
+                {
+                    //Console.WriteLine("not an option");
+                    
+                }
                 
-
                 //--------------------------------------//
-                
-                
-                
-
 
                 if (input.KeyChar == 'a')
                 {
@@ -53,11 +56,23 @@ namespace string__
                     Console.WriteLine(page[1]);
                 }
 
-                
+                //--------------------------------------//
+
+                if (input.KeyChar == 's')
+                {
+                    //reset = false;
+                    Console.WriteLine(page[2]);
+                }
 
                 //--------------------------------------//
 
+                if (input.KeyChar == 'r')
+                {
+                    //reset = false;
+                    Console.WriteLine(page[3]);
+                }
 
+                //--------------------------------------//
             }
 
         }
