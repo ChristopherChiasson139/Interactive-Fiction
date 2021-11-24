@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("template")]
+[assembly: AssemblyTitle("Interactive Fiction - First Playable")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("template")]
+[assembly: AssemblyProduct("Interactive Fiction - First Playable")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("15da75b8-00f7-42a0-8854-5e82c985a901")]
+[assembly: Guid("28a05a18-5f89-4873-8cbe-67b0257cbf07")]
 
 // Version information for an assembly consists of the following four values:
 //

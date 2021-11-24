@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15DA75B8-00F7-42A0-8854-5E82C985A901}</ProjectGuid>
+    <ProjectGuid>{28A05A18-5F89-4873-8CBE-67B0257CBF07}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>template</RootNamespace>
-    <AssemblyName>template</AssemblyName>
+    <RootNamespace>Interactive_Fiction___First_Playable</RootNamespace>
+    <AssemblyName>Interactive Fiction - First Playable</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
