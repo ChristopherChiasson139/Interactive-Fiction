@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace string__
+namespace Welcometotheadventureyouchoose
 {
     class Program
     {
-        static string[] page = new string[100];
+
         static string[] art = new string[100];
         static bool gamePlay = true;
         static string[] pageContents = new string[6];
@@ -266,56 +267,17 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
             //--------------------------------------//
             //page[0] = @"f
-            page[0] = @"Welcome to the adventure you choose
 
-You wake up with a bump on your head and a stick up your ass. 
-You see a path and a river.  Which do you choose to travel?;a = River;b = Path;1;2
-";
-            page[1] = art[1] +
-@"You try to swim across the river. Unfortunately, you cannot swim, you die.; ; ;0;0";
-
-            page[2] = @"You walk down the path and a strange man offers you a drink. Do you drink?;a = yes;b = no;3;6";
-
-            page[3] = @"You take the drink and feel refreshed. You then pass out.
-You wake up in a cabin. You decide to leave. Do you go left or right down the path?
-;a = Left;b = Right;4;5";
-
-            page[4] = art[4] +
-@"You were attacked by a bunch of wolves.
-Unfortunately, your stick is not a powerful enough weapon.
-The wolves kill you.; ; ;0;0";
-
-            page[5] = @"You find a home. The family inside welcomes you in.
-You spend the next 40 years enjoying life to the fullest and marrying his daughter.; ; ;0;0";
-
-            page[6] = @"You politely declined the offer.
-You find a mountain path and a forest. Where do you go?;a = mountain;b = forest;7;8";
-
-            page[7] = art[7] +
-@"You climb the steep road of the mountain. You find an abandoned farmhouse.
-You decide to make this. Your home. You have lived peacefully on the mountain top for 60 years.; ; ;0;0";
-
-            page[8] = @"You trek through the forest. You encounter a hollow king. What will you do?;a = fight;b = Run;9;10";
-
-            page[9] = @"You approach the king and prepare to fight. What do you do?;a = Give him your stick;b = Charge the king;11;12";
-
-            page[10] = art[10] +
-@"You try to run. Unfortunately, the king is faster, he decapitates you swiftly.; ; ;0;0";
-
-            page[11] = art[11] +
-@"You give the hollow king your stick and tell him to guess where this has been.
-The king does not hesitate to drive his sword through your heart.; ; ;0;0";
-
-            page[12] = art[12] +
-@"You rushed the king and pushed him over. You quickly grab his sword and plunge it through his heart or what's left of it.
-Black fog emanates from the forest and income is you. You emerged with a newfound power.  You live for 1000 years.; ; ;0;0";
 
             //--------------------------------------//
 
 
             while (gamePlay)
             {
-                pageContents = page[currentPage].Split(';');
+                string[] story;
+                story = System.IO.File.ReadAllLines("story.txt");
+
+                pageContents = story[currentPage].Split(';');
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -341,6 +303,7 @@ Black fog emanates from the forest and income is you. You emerged with a newfoun
                 {
                     currentPage = int.Parse(pageContents[4]);
                 }
+
 
 
 
