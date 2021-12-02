@@ -1,4 +1,4 @@
-Welcome to the adventure you choose You wake up with a bump on your head and a stick up your ass. You see a path and a  river.  Which do you choose to travel?;a = River;b = Path;1;2
+You wake up with a bump on your head and a stick up your ass. You see a path and a river. Which do you choose to travel?;a = River;b = Path;1;2
 You try to swim across the river. Unfortunately, you cannot swim, you die.; ; ;0;0
 You walk down the path and a strange man offers you a drink. Do you drink?;a = yes;b = no;3;6
 You take the drink and feel refreshed. You then pass out. You wake up in a cabin. You decide to leave. Do you go left or right down the path?;a = Left;b = Right;4;5

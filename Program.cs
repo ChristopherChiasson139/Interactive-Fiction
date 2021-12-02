@@ -11,9 +11,10 @@ namespace Welcometotheadventureyouchoose
     {
 
         static string[] art = new string[100];
-        static bool gamePlay = true;
+        static bool gamePlay = false;
         static string[] pageContents = new string[6];
         static public int currentPage = 0;
+        static bool mainMenu = true;
 
 
         static void Main(string[] args)
@@ -270,7 +271,37 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 
             //--------------------------------------//
+            while (mainMenu)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(art[7]);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(@"Welcome to the adventure you choose You");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(@"
+a = new game
+b = continue");
 
+                while (Console.KeyAvailable)
+                {
+                    Console.ReadKey(true);
+                }
+                ConsoleKeyInfo input;
+                input = Console.ReadKey(true);
+
+
+                if (input.KeyChar == 'a')
+                {
+                    mainMenu = false;
+                    gamePlay = true;
+                }
+
+                if (input.KeyChar == 'b')
+                {
+
+                }
+
+            }
 
             while (gamePlay)
             {
