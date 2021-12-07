@@ -15,6 +15,7 @@ namespace Welcometotheadventureyouchoose
         static string[] pageContents = new string[6];
         static public int currentPage = 0;
         static bool mainMenu = true;
+        static bool gameRun = true;
 
 
         static void Main(string[] args)
@@ -270,106 +271,147 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 
             //--------------------------------------//
-            while (mainMenu)
+            while (gameRun)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(art[7]);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(@"Welcome to the adventure you choose You");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(@"
-a = new game
-b = continue
-");
-
-                while (Console.KeyAvailable)
-                {
-                    Console.ReadKey(true);
-                }
-                ConsoleKeyInfo input;
-                input = Console.ReadKey(true);
-
-
-                if (input.KeyChar == 'a')
-                {
-                    Console.Beep(750, 250);
-                    mainMenu = false;
-                    gamePlay = true;
-                }
-                else if (input.KeyChar == 'b')
-                {
-                    Console.Beep(750, 250);
-
-                }
-                else
-                {
-                    Console.Beep(340, 250);
-                    Console.WriteLine("Not an option forehead");
-                    Console.ReadKey(true);
-                }
-            }
-
-            while (gamePlay)
-            {
-                Console.Clear();
                 string[] story;
                 story = System.IO.File.ReadAllLines("story.txt");
-
-                pageContents = story[currentPage].Split(';');
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(pageContents[0] + art[currentPage]);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("a = " + pageContents[1]);
-                Console.WriteLine("b = " + pageContents[2]);
-                Console.WriteLine("s = save");
-
-                while (Console.KeyAvailable)
+                if (story == null)
                 {
+                    Console.WriteLine(@"An error was detected");
                     Console.ReadKey(true);
+                    Environment.Exit(0);
                 }
-                ConsoleKeyInfo input;
-                input = Console.ReadKey(true);
-
-
-                if (input.KeyChar == 'a')
+                while (mainMenu)
                 {
-                    Console.Beep(750, 250);
-                    currentPage = int.Parse(pageContents[3]);
-                }
-
-                else if (input.KeyChar == 'b')
-                {
-                    Console.Beep(750, 250);
-                    currentPage = int.Parse(pageContents[4]);
-                }
-
-
-                else if (input.KeyChar == 's')
-                {
-                    Console.Beep(750, 250);
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(art[7]);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("saved");
+                    Console.WriteLine(@"Welcome to the adventure you choose You");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("pass enter");
-                    File.WriteAllText("savegame.txt", currentPage.ToString());
-                    Console.ReadKey(true);
+                    Console.WriteLine(@"
+a = new game
+b = load save");
+                    Console.WriteLine(@"q = quit");
 
+
+                    while (Console.KeyAvailable)
+                    {
+                        Console.ReadKey(true);
+                    }
+                    ConsoleKeyInfo input;
+                    input = Console.ReadKey(true);
+
+
+                    if (input.KeyChar == 'a')
+                    {
+                        currentPage = 0;
+                        Console.Beep(750, 250);
+                        mainMenu = false;
+                        gamePlay = true;
+                    }
+                    else if (input.KeyChar == 'b')
+                    {
+                        Console.Beep(750, 250);
+                        currentPage = int.Parse(System.IO.File.ReadAllText("savegame.txt"));
+                        mainMenu = false;
+                        gamePlay = true;
+                    }
+                    else if (input.KeyChar == 'q')
+                    {
+                        Console.Beep(750, 250);
+                        Environment.Exit(0);
+
+                    }
+                    else
+                    {
+                        Console.Beep(340, 250);
+                        Console.WriteLine("Not an option forehead");
+                        Console.ReadKey(true);
+                    }
                 }
 
-                else
+                while (gamePlay)
                 {
-                    Console.Beep(340, 250);
-                    Console.WriteLine("Not an option forehead");
-                    Console.ReadKey(true);
+                    Console.Clear();
+                    pageContents = story[currentPage].Split(';');
+                    if (currentPage == 13)
+                    {
+
+                        Console.Beep(340, 250);
+                        gamePlay = false;
+                        mainMenu = true;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine(pageContents[0]);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(@"Press A");
+                    }
+                    else
+                    {
+
+
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine(pageContents[0] + art[currentPage]);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("a = " + pageContents[1]);
+                        Console.WriteLine("b = " + pageContents[2]);
+                        Console.WriteLine("s = save");
+                        Console.WriteLine("m = meun");
+                    }
+
+
+                    while (Console.KeyAvailable)
+                    {
+                        Console.ReadKey(true);
+                    }
+                    ConsoleKeyInfo input;
+                    input = Console.ReadKey(true);
+
+
+                    if (input.KeyChar == 'a')
+                    {
+                        Console.Beep(750, 250);
+                        currentPage = int.Parse(pageContents[3]);
+                    }
+
+                    else if (input.KeyChar == 'b')
+                    {
+                        Console.Beep(750, 250);
+                        currentPage = int.Parse(pageContents[4]);
+                    }
+
+                    else if (input.KeyChar == 'm')
+                    {
+                        Console.Beep(750, 250);
+                        gamePlay = false;
+                        mainMenu = true;
+                    }
+
+                    else if (input.KeyChar == 's')
+                    {
+                        Console.Beep(750, 250);
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("saved");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("pass enter");
+                        File.WriteAllText("savegame.txt", currentPage.ToString());
+                        Console.ReadKey(true);
+
+                    }
+
+                    else
+                    {
+                        Console.Beep(340, 250);
+                        Console.WriteLine("Not an option forehead");
+                        Console.ReadKey(true);
+                    }
+
                 }
 
             }
-
-
         }
     }
 }
