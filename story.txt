@@ -1,14 +1,14 @@
 You wake up with a bump on your head and a stick up your ass. You see a path and a river. Which do you choose to travel?;River;Path;1;2
-You try to swim across the river. Unfortunately, you cannot swim, you die.;restart;restart;13;13
+You try to swim across the river. Unfortunately, you cannot swim, you die.;Death;Death;13;13
 You walk down the path and a strange man offers you a drink. Do you drink?;yes;no;3;6
 You take the drink and feel refreshed. You then pass out. You wake up in a cabin. You decide to leave. Do you go left or right down the path?;Left;Right;4;5
-You were attacked by a bunch of wolves. Unfortunately, your stick is not a powerful enough weapon. The wolves kill you.;restart;restart;13;13
-You find a home. The family inside welcomes you in. You spend the next 40 years enjoying life to the fullest and        marrying his daughter.;restart;restart;13;13
+You were attacked by a bunch of wolves. Unfortunately, your stick is not a powerful enough weapon. The wolves kill you.;Death;Death;13;13
+You find a home. The family inside welcomes you in. You spend the next 40 years enjoying life to the fullest and        marrying his daughter.;Pass away;Pass away;13;13
 You politely declined the offer. You find a mountain path and a forest. Where do you go?;mountain;forest;7;8
-You climb the steep road of the mountain. You find an abandoned farmhouse. You decide to make this. Your home. You have lived peacefully on the mountain top for 60 years.;restart;restart;13;13
+You climb the steep road of the mountain. You find an abandoned farmhouse. You decide to make this. Your home. You have lived peacefully on the mountain top for 60 years.;Pass away;Pass away;13;13
 You trek through the forest. You encounter a hollow king. What will you do?;fight;Run;9;10
 You approach the king and prepare to fight. What do you do?;Give him your stick;Charge the king;11;12
-You try to run. Unfortunately, the king is faster, he decapitates you swiftly.;restart;restart;13;13
-You give the hollow king your stick and tell him to guess where this has been. The king does not hesitate to drive his  sword through your heart.;restart;restart;13;13
-You rushed the king and pushed him over. You quickly grab his sword and plunge it through his heart or what's left of it  Black fog emanates from the forest and income is you. You emerged with a newfound power.  You live for 1000 years.;restart;restart;13;13
-You suddenly wake up in a McDonald's parking lot. You wonder if that was all a dream. Then you head home.; ; ;0;0 
+You try to run. Unfortunately, the king is faster, he decapitates you swiftly.;restart;restart;Death;Death
+You give the hollow king your stick and tell him to guess where this has been. The king does not hesitate to drive his  sword through your heart.;Death;Death;13;13
+You rushed the king and pushed him over. You quickly grab his sword and plunge it through his heart or what's left of it  Black fog emanates from the forest and income is you. You emerged with a newfound power.  You live for 1000 years.;Pass away;Pass away;13;13
+You suddenly wake up in a McDonald's parking lot. You wonder if that was all a dream. Then you head home.;restart;restart;0;0 

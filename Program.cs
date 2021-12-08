@@ -273,16 +273,28 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
             //--------------------------------------//
             while (gameRun)
             {
-                string[] story;
-                story = System.IO.File.ReadAllLines("story.txt");
-                if (story == null)
+                
+                //Story file error checking//
+                if (File.Exists("story.txt"))
                 {
-                    Console.WriteLine(@"An error was detected");
+
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(@"Story file location error detected");
                     Console.ReadKey(true);
                     Environment.Exit(0);
                 }
+
+                //Story file reading//
+                string[] story;
+                story = System.IO.File.ReadAllLines("story.txt");
+
                 while (mainMenu)
                 {
+                    //mainMenu Formatting//
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(art[7]);
@@ -294,7 +306,7 @@ a = new game
 b = load save");
                     Console.WriteLine(@"q = quit");
 
-
+                    //key reader//
                     while (Console.KeyAvailable)
                     {
                         Console.ReadKey(true);
@@ -302,7 +314,7 @@ b = load save");
                     ConsoleKeyInfo input;
                     input = Console.ReadKey(true);
 
-
+                    //new game//
                     if (input.KeyChar == 'a')
                     {
                         currentPage = 0;
@@ -310,6 +322,8 @@ b = load save");
                         mainMenu = false;
                         gamePlay = true;
                     }
+
+                    //load save//
                     else if (input.KeyChar == 'b')
                     {
                         Console.Beep(750, 250);
@@ -317,12 +331,16 @@ b = load save");
                         mainMenu = false;
                         gamePlay = true;
                     }
+
+                    //quit game//
                     else if (input.KeyChar == 'q')
                     {
                         Console.Beep(750, 250);
                         Environment.Exit(0);
 
                     }
+
+                    //Wrong key press//
                     else
                     {
                         Console.Beep(340, 250);
@@ -335,6 +353,8 @@ b = load save");
                 {
                     Console.Clear();
                     pageContents = story[currentPage].Split(';');
+
+                    //Death page back to menu//
                     if (currentPage == 13)
                     {
 
@@ -346,10 +366,11 @@ b = load save");
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(@"Press A");
                     }
+
+
                     else
                     {
-
-
+                        //Story Formatting//
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -361,7 +382,7 @@ b = load save");
                         Console.WriteLine("m = meun");
                     }
 
-
+                    //key reader//
                     while (Console.KeyAvailable)
                     {
                         Console.ReadKey(true);
@@ -369,19 +390,21 @@ b = load save");
                     ConsoleKeyInfo input;
                     input = Console.ReadKey(true);
 
-
+                    //Option A//
                     if (input.KeyChar == 'a')
                     {
                         Console.Beep(750, 250);
                         currentPage = int.Parse(pageContents[3]);
                     }
 
+                    //Option B//
                     else if (input.KeyChar == 'b')
                     {
                         Console.Beep(750, 250);
                         currentPage = int.Parse(pageContents[4]);
                     }
 
+                    //back to mainMenu//
                     else if (input.KeyChar == 'm')
                     {
                         Console.Beep(750, 250);
@@ -389,6 +412,7 @@ b = load save");
                         mainMenu = true;
                     }
 
+                    //save game//
                     else if (input.KeyChar == 's')
                     {
                         Console.Beep(750, 250);
@@ -402,6 +426,7 @@ b = load save");
 
                     }
 
+                    //Wrong key press//
                     else
                     {
                         Console.Beep(340, 250);
