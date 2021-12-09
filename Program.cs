@@ -339,9 +339,21 @@ Press any key");
                             }
                             else
                             {
-                                currentPage = int.Parse(System.IO.File.ReadAllText("savegame.txt"));
-                                mainMenu = false;
-                                gamePlay = true;
+                                if (currentPage >= 14)
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine(@"savegame is more the max page error detected");
+                                    Console.ReadKey(true);
+                                    Environment.Exit(0);
+                                }
+                                if (currentPage <= 13)
+                                {
+                                    currentPage = int.Parse(System.IO.File.ReadAllText("savegame.txt"));
+                                    mainMenu = false;
+                                    gamePlay = true;
+                                }
+
                             }
 
                         }
@@ -397,6 +409,7 @@ Press any key");
                         Console.ReadKey(true);
                         Environment.Exit(0);
                     }
+
 
 
 
