@@ -410,7 +410,14 @@ Press any key");
                         Environment.Exit(0);
                     }
 
-
+                    if (new FileInfo("story.txt").Length == 0)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(@"FileInfo error detected");
+                        Console.ReadKey(true);
+                        Environment.Exit(0);
+                    }
 
 
                     else
