@@ -273,7 +273,6 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
             //--------------------------------------//
             while (gameRun)
             {
-                
                 //Story file error checking//
                 if (File.Exists("story.txt"))
                 {
@@ -327,9 +326,38 @@ b = load save");
                     else if (input.KeyChar == 'b')
                     {
                         Console.Beep(750, 250);
-                        currentPage = int.Parse(System.IO.File.ReadAllText("savegame.txt"));
-                        mainMenu = false;
-                        gamePlay = true;
+                        if (File.Exists("savegame.txt"))
+                        {
+                            if (System.IO.File.ReadAllText("savegame.txt") == "")
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine(@"There is no save
+Press any key");
+                                Console.ReadKey(true);
+
+                            }
+                            else
+                            {
+                                currentPage = int.Parse(System.IO.File.ReadAllText("savegame.txt"));
+                                mainMenu = false;
+                                gamePlay = true;
+                            }
+
+                        }
+
+                        //savegame file error checking//
+                        else
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(@"There is no save
+Press any key");
+                            Console.ReadKey(true);
+
+
+                        }
+
                     }
 
                     //quit game//
@@ -337,7 +365,6 @@ b = load save");
                     {
                         Console.Beep(750, 250);
                         Environment.Exit(0);
-
                     }
 
                     //Wrong key press//
@@ -351,25 +378,34 @@ b = load save");
 
                 while (gamePlay)
                 {
-                    Console.Clear();
-                    pageContents = story[currentPage].Split(';');
 
                     //Death page back to menu//
                     if (currentPage == 13)
                     {
-
+                        Console.Clear();
                         Console.Beep(340, 250);
                         gamePlay = false;
                         mainMenu = true;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine(pageContents[0]);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine(@"Press A");
                     }
+
+                    //Story manipulation error checking//
+                    if (currentPage >= 14)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(@"Story manipulation error detected");
+                        Console.ReadKey(true);
+                        Environment.Exit(0);
+                    }
+
 
 
                     else
                     {
+                        //Story file reader//
+                        Console.Clear();
+                        pageContents = story[currentPage].Split(';');
+
                         //Story Formatting//
                         Console.WriteLine("");
                         Console.WriteLine("");
@@ -404,7 +440,7 @@ b = load save");
                         currentPage = int.Parse(pageContents[4]);
                     }
 
-                    //back to mainMenu//
+                    //back to mainMenu// 
                     else if (input.KeyChar == 'm')
                     {
                         Console.Beep(750, 250);
@@ -434,8 +470,9 @@ b = load save");
                         Console.ReadKey(true);
                     }
 
-                }
 
+
+                }
             }
         }
     }
