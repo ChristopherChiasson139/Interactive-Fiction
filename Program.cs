@@ -419,6 +419,34 @@ Press any key");
                         Environment.Exit(0);
                     }
 
+                    pageContents = story[currentPage].Split(';');
+
+                    if (String.IsNullOrWhiteSpace(pageContents[0]))
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(@"error detected 0");
+                        Console.ReadKey(true);
+                        Environment.Exit(0);
+                    }
+
+                    if (pageContents.Length < 5)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(@"Page elements error detected");
+                        Console.ReadKey(true);
+                        Environment.Exit(0);
+                    }
+
+                    if (pageContents.Length > 5)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(@"Page elements error detected");
+                        Console.ReadKey(true);
+                        Environment.Exit(0);
+                    }
 
                     else
                     {
@@ -427,8 +455,6 @@ Press any key");
                         pageContents = story[currentPage].Split(';');
 
                         //Story Formatting//
-                        Console.WriteLine("");
-                        Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine(pageContents[0] + art[currentPage]);
                         Console.ForegroundColor = ConsoleColor.Green;
