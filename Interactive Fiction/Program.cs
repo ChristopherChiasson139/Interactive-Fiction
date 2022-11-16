@@ -14,11 +14,20 @@ namespace Interactive_Fiction
         static public int b = 1;
         static void Main(string[] args)
         {
-            story = new string[10, 10];
-            story[1, 1] = "1";
-            story[1, 2] = "2";
-            story[1, 3] = "3";
-            story[1, 4] = "4";
+            story = new string[5, 5];
+            story[1, 1] = "You are a gnome and the great Kingdom of Underhill and you've been chosen to have a peace talk with the dwarves.\r\nTo help you make your way to the dwarves you brew a teleportation potion unfortunately the potion went Wong.\r\nYou try to make your way to the dwarves anyway.\r\n\r\nA = you try to cross the river nearby\r\nB = search to see if anything got teleported with you\r\n";
+            story[1, 2] = "You search around finding a bag of something and a wild horse\r\n\r\nA = get on the horse\r\nB = open the bag\r\n";
+            story[1, 3] = "You're too distracted while looking in the bag to realize a snake is approaching. \r\nThe snake bites you on the leg and you die.\r\n";
+            story[2, 1] = "You get about halfway through the river when you start to get tired you're unable to swim to the shore and drown\r\n";
+            story[2, 2] = "You start riding down the road and it splits into two paths\r\n\r\nA = go left\r\nB = go right\r\n";
+            story[3, 2] = "You ride down the road for a couple of days you're tired and hungry but you eventually make it to the dwarves";
+            story[2, 3] = "You start riding down the road and your horse trips on a rock breaking its leg.\r\n\r\nA = open the bag\r\nB = start walking down the road\r\n";
+            story[3, 3] = "You find a Rubik's Cube and Skíðblaðnir in the bag.\r\n\r\nA = Use Rubik's Cube\r\nB = Use Skíðblaðnir\r\n";
+            story[2, 4] = "You start walking down the road when a merchant happens to be traveling on the road with you. \r\nThe merchant lets you hop on his cart on the way to the dwarves. \r\nIn a few hours you make it to the dwarves.\r\n";
+            story[4, 3] = "You fixate on the Rubik's Cube and play with it for hours. \r\nYou eventually starve to death due to your extreme fixation on the Rubik's Cube.\r\n";
+            story[3, 4] = "You unfold Skíðblaðnir and ride the boat down the river. \r\nYou eventually make it safely down the river to the home of the dwarves\r\n";
+
+            Console.WriteLine("Gnome Quest Adventure\r\nPress any button to start");
 
             gamerun = true;
             while (gamerun)
@@ -32,11 +41,12 @@ namespace Interactive_Fiction
                         gamerun = false;
                         break;
                 }
-
+                
                 Console.WriteLine(story[a, b]);
                 if (input.KeyChar == 'a')
                 {
                     a = a + 1;
+
                 }
                 if (input.KeyChar == 'b')
                 {
@@ -47,7 +57,7 @@ namespace Interactive_Fiction
             }
 
 
-            Console.WriteLine("did");
+            Console.WriteLine("Game over");
             Console.ReadKey(true);
         }
         
