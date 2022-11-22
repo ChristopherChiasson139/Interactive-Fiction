@@ -10,10 +10,11 @@ namespace Interactive_Fiction
     {
         static public string[,] story;
         static bool gamerun;
-        static public int a = 1;
-        static public int b = 1;
+        
         static void Main(string[] args)
         {
+
+             
             story = new string[5, 5];
             story[1, 1] = "You are a gnome and the great Kingdom of Underhill and you've been chosen to have a peace talk with the dwarves.\r\nTo help you make your way to the dwarves you brew a teleportation potion unfortunately the potion went Wong.\r\nYou try to make your way to the dwarves anyway.\r\n\r\nA = you try to cross the river nearby\r\nB = search to see if anything got teleported with you\r\n";
             story[1, 2] = "You search around finding a bag of something and a wild horse\r\n\r\nA = get on the horse\r\nB = open the bag\r\n";
@@ -27,38 +28,51 @@ namespace Interactive_Fiction
             story[4, 3] = "You fixate on the Rubik's Cube and play with it for hours. \r\nYou eventually starve to death due to your extreme fixation on the Rubik's Cube.\r\n";
             story[3, 4] = "You unfold Skíðblaðnir and ride the boat down the river. \r\nYou eventually make it safely down the river to the home of the dwarves\r\n";
 
+            int a = 1;
+            int b = 1;
+
+            
             Console.WriteLine("Gnome Quest Adventure\r\nPress any button to start");
+            Console.ReadKey(true);
+
+            Console.Clear();
+            Console.WriteLine("a=" + a);
+            Console.WriteLine("b=" + b);
+            Console.WriteLine(story[a, b]);
 
             gamerun = true;
             while (gamerun)
             {
+
+                
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
 
-                switch (story[a, b])
-                {
-                    case "4":
-                        gamerun = false;
-                        break;
-                }
                 
-                Console.WriteLine(story[a, b]);
+
                 if (input.KeyChar == 'a')
                 {
+       
                     a = a + 1;
+                    //Console.WriteLine("a key=" + a);
 
                 }
-                if (input.KeyChar == 'b')
+                else if(input.KeyChar == 'b')
                 {
-                    b = b + 1;
-                }
 
-                
+                    b = b + 1;
+                    //Console.WriteLine("b key=" + b);
+                }
+                Console.Clear();
+                Console.WriteLine("a=" + a);
+                Console.WriteLine("b=" + b);
+                Console.WriteLine(story[a, b]);
+
             }
 
 
-            Console.WriteLine("Game over");
-            Console.ReadKey(true);
+            //Console.WriteLine("Game over");
+            //Console.ReadKey(true);
         }
         
     }
