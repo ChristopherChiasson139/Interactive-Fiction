@@ -16,7 +16,7 @@ namespace Interactive_Fiction
 
              
             story = new string[5, 5];
-            story[1, 1] = "You are a gnome and the great Kingdom of Underhill and you've been chosen to have a peace talk with the dwarves.\r\nTo help you make your way to the dwarves you brew a teleportation potion unfortunately the potion went Wong.\r\nYou try to make your way to the dwarves anyway.\r\n\r\nA = you try to cross the river nearby\r\nB = search to see if anything got teleported with you\r\n";
+            story[1, 1] = "You are a gnome and the great Kingdom of Underhill and you've been chosen to have a peace talk with the dwarves.\r\nTo help you make your way to the dwarves you brew a teleportation potion unfortunately the potion went Wong.\r\nYou try to make your way to the dwarves anyway.\r\n\r\nA = try to cross the river nearby\r\nB = search to see if anything got teleported with you\r\n";
             story[1, 2] = "You search around finding a bag of something and a wild horse\r\n\r\nA = get on the horse\r\nB = open the bag\r\n";
             story[1, 3] = "You're too distracted while looking in the bag to realize a snake is approaching. \r\nThe snake bites you on the leg and you die.\r\n";
             story[2, 1] = "You get about halfway through the river when you start to get tired you're unable to swim to the shore and drown\r\n";
@@ -39,6 +39,7 @@ namespace Interactive_Fiction
             Console.WriteLine("a=" + a);
             Console.WriteLine("b=" + b);
             Console.WriteLine(story[a, b]);
+            Console.WriteLine("Q = Quit");
 
             gamerun = true;
             while (gamerun)
@@ -54,14 +55,18 @@ namespace Interactive_Fiction
                 {
        
                     a = a + 1;
-                    //Console.WriteLine("a key=" + a);
+                    
 
                 }
                 else if(input.KeyChar == 'b')
                 {
 
                     b = b + 1;
-                    //Console.WriteLine("b key=" + b);
+                    
+                }
+                if (input.KeyChar == 'q')
+                {
+                    Environment.Exit(0);
                 }
                 Console.Clear();
                 Console.WriteLine("a=" + a);
