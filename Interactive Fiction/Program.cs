@@ -10,11 +10,9 @@ namespace Interactive_Fiction
     {
         static public string[,] story;
         static bool gamerun;
-        
         static void Main(string[] args)
         {
-
-             
+            //story
             story = new string[5, 5];
             story[1, 1] = "You are a gnome and the great Kingdom of Underhill and you've been chosen to have a peace talk with the dwarves.\r\nTo help you make your way to the dwarves you brew a teleportation potion unfortunately the potion went Wong.\r\nYou try to make your way to the dwarves anyway.\r\n\r\nA = try to cross the river nearby\r\nB = search to see if anything got teleported with you\r\n";
             story[1, 2] = "You search around finding a bag of something and a wild horse\r\n\r\nA = get on the horse\r\nB = open the bag\r\n";
@@ -31,53 +29,132 @@ namespace Interactive_Fiction
             int a = 1;
             int b = 1;
 
-            
+            //start
             Console.WriteLine("Gnome Quest Adventure\r\nPress any button to start");
             Console.ReadKey(true);
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
             Console.WriteLine("a=" + a);
             Console.WriteLine("b=" + b);
             Console.WriteLine(story[a, b]);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Q = Quit");
-
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("e = endings");
             gamerun = true;
             while (gamerun)
             {
-
-                
+                //input
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
 
-                
-
                 if (input.KeyChar == 'a')
-                {
-       
-                    a = a + 1;
-                    
-
+                {      
+                    a = a + 1; 
                 }
                 else if(input.KeyChar == 'b')
-                {
-
-                    b = b + 1;
-                    
+                { 
+                    b = b + 1;  
                 }
                 if (input.KeyChar == 'q')
                 {
                     Environment.Exit(0);
                 }
+                if (input.KeyChar == 'g')
+                {
+                    Console.WriteLine("");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 7");
+                    Console.WriteLine("");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("G");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("n");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("o");
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.Write("m");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("e");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("d");
+                    Console.ReadKey(true);
+                    Environment.Exit(0);
+                }
+                if (input.KeyChar == 'e')
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("1 = Poor judgment");
+                    Console.WriteLine("2 = Oblivious");
+                    Console.WriteLine("3 = Slow and steady");
+                    Console.WriteLine("4 = A little help");
+                    Console.WriteLine("5 = WTF");
+                    Console.WriteLine("6 = Mythical success");
+                    Console.WriteLine("G = Gnomed");
+                    Console.ReadKey(true);
+                }
+                //TX
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Clear();
                 Console.WriteLine("a=" + a);
                 Console.WriteLine("b=" + b);
                 Console.WriteLine(story[a, b]);
+                
 
+                //game end
+                if (a == 2 & b == 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 1");
+                    gamerun = false;
+                }
+                if (a == 1 & b == 3)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 2");
+                    gamerun = false;
+                }
+                if (a == 3 & b == 2)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 3");
+                    gamerun = false;
+                }
+                if (a == 2  & b == 4)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 4");
+                    gamerun = false;
+                }
+                if (a == 4 & b == 3)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 5");
+                    gamerun = false;
+                }
+                if (a == 3 & b == 4)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ending 6");
+                    gamerun = false;
+                }
+                //more input
+                if (gamerun == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Q = Quit");
+                }
+                if (gamerun == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("e = endings");
+                }  
             }
-
-
-            //Console.WriteLine("Game over");
-            //Console.ReadKey(true);
+            //Game over
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" ");
+            Console.WriteLine("Game over");
+            Console.ReadKey(true);
         }
         
     }
